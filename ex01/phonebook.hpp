@@ -17,7 +17,7 @@ private:
 	void _add();
 	void _search();
 	bool _is_empty(Contact c);
-	std::string _ten_chr(std::string s);
+	// std::string _ten_chr(std::string s);
 	void _show_contact(int i);
 	void _erase_old();
 };

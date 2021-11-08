@@ -81,9 +81,9 @@ void PhoneBook::_show_contact(int i) {
 	std::cout << i << " |";
 	for (int j = 0; j < Contact::content_num; j++) {
 		s = this->_data[i].get_info(j);
-		// s = this->_ten_chr(s);
+		s = _ten_chr(s);
 		std::cout << s;
-		// todo:: sを10文字で出力 std::setw(10)が使えない
+		// todo:: sを10文字で出力 std::setw(10)が使えない 自分の関数を見て良いのか
 		std::cout << "|";
 	}
 	std::cout << std::endl;
