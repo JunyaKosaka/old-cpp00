@@ -28,6 +28,7 @@ void PhoneBook::_add() {
 
 	if (this->_cur_index == DATA_MAX) {
 		this->_erase_old();
+		std::cout << "ERASE OLDEST ONE" << std::endl;
 		this->_cur_index--;
 	}
 	// _data[_cur_index] に情報を書く　
@@ -45,7 +46,7 @@ void PhoneBook::_add() {
 }
 
 void PhoneBook::_search() {
-	std::cout << "  |     index|first name| last name|  nickname|\n";
+	std::cout << "|index|first name| last name|  nickname|\n";
 	for (int i = 0; i < this->_cur_index; i++) {
 		this->_show_contact(i);
 	}
@@ -62,7 +63,7 @@ bool PhoneBook::_is_empty(Contact c) {
 	return is_empty;
 }
 
-std::string _ten_chr(std::string s) {
+std::string PhoneBook::_trim_to_ten(std::string s) {
 	int len = s.size();
 	if (len > 10) {
 		s[9] = '.';
@@ -78,10 +79,10 @@ std::string _ten_chr(std::string s) {
 
 void PhoneBook::_show_contact(int i) {
 	std::string s;
-	std::cout << i << " |";
-	for (int j = 0; j < Contact::content_num; j++) {
+	std::cout << "|    " << i << "|";
+	for (int j = 0; j < Contact::content_num - 2; j++) {
 		s = this->_data[i].get_info(j);
-		s = _ten_chr(s);
+		s = PhoneBook::_trim_to_ten(s);
 		std::cout << s;
 		// todo:: sを10文字で出力 std::setw(10)が使えない 自分の関数を見て良いのか
 		std::cout << "|";
