@@ -28,7 +28,7 @@ void PhoneBook::_add() {
 
 	if (this->_cur_index == DATA_MAX) {
 		this->_erase_old();
-		std::cout << "ERASE OLDEST ONE" << std::endl;
+		std::cout << "DELETED OLDEST ONE:(" << std::endl;
 		this->_cur_index--;
 	}
 	// _data[_cur_index] に情報を書く　
@@ -38,15 +38,15 @@ void PhoneBook::_add() {
 		this->_data[_cur_index].set_info(i, response);
 	}
 	if (this->_is_empty(this->_data[_cur_index])) {
-		std::cout << "INVALID CONTACT!" << std::endl;
+		std::cout << "INVALID CONTACT:-C" << std::endl;
 		return ;
 	}
-	std::cout << "ADDED CONTACT!" << std::endl;
+	std::cout << "ADDED CONTACT:)" << std::endl;
 	this->_cur_index++;
 }
 
 void PhoneBook::_search() {
-	std::cout << "|index|first name| last name|  nickname|\n";
+	std::cout << "|     index|first name| last name|  nickname|\n";
 	for (int i = 0; i < this->_cur_index; i++) {
 		this->_show_contact(i);
 	}
@@ -79,7 +79,7 @@ std::string PhoneBook::_trim_to_ten(std::string s) {
 
 void PhoneBook::_show_contact(int i) {
 	std::string s;
-	std::cout << "|    " << i << "|";
+	std::cout << "|         " << i << "|";
 	for (int j = 0; j < Contact::content_num - 2; j++) {
 		s = this->_data[i].get_info(j);
 		s = PhoneBook::_trim_to_ten(s);
