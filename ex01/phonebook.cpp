@@ -31,7 +31,6 @@ void PhoneBook::_add() {
 		std::cout << "DELETED OLDEST ONE:(" << std::endl;
 		this->_cur_index--;
 	}
-	// _data[_cur_index] に情報を書く　
 	for (int i = 0; i < Contact::content_num; i++) {
 		std::cout << Contact::prompt_list[i] << ": ";
 		std::getline(std::cin, response, '\n');
@@ -111,8 +110,6 @@ void PhoneBook::_show_contacts(int i) {
 		s = this->_data[i].get_info(j);
 		s = PhoneBook::_trim_to_ten(s);
 		std::cout << s;
-		// todo:: sを10文字で出力 std::setw(10)が使えない 自分の関数を見て良いのか
-		// # include <iomanip>
 		std::cout << "|";
 	}
 	std::cout << std::endl;

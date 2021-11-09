@@ -17,7 +17,7 @@ public:
 private:
 
 	Contact		_data[DATA_MAX];
-	int			_cur_index;  // 次入ったら入るindex 8の時に入ったら0を削除
+	int			_cur_index;
 	void		_add();
 	void		_search();
 	bool		_is_empty(Contact c);
