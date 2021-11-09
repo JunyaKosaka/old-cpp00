@@ -62,12 +62,11 @@ void PhoneBook::_search() {
 		}
 		char c = response[0];
 		int num = 0 + (c - '0');
-		if (num >= this->_cur_index) {
-			std::cout << "INVALID INDEX:(" << std::endl;
-			continue;
+		if (0 <= num && num < this->_cur_index) {
+			PhoneBook::_show_one(num);
+			break;
 		}
-		PhoneBook::_show_one(num);
-		break;
+		std::cout << "INVALID INDEX:(" << std::endl;
 	}
 }
 
