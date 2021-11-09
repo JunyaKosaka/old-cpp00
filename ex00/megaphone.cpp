@@ -6,14 +6,14 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:26:36 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/11/08 17:09:14 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/11/09 13:58:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 void func(std::string *s) {
-	for (int i = 0; i < int((*s).size()); i++) {
+	for (size_t i = 0; i < (*s).size(); i++) {
 		(*s)[i] = std::toupper((*s)[i]);
 	}
 }
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[]) {
 		std::string s = argv[i];
 		func(&s);
 		std::cout << s;
-		if (i < argc - 1) std::cout << ' ';
-		if (i == argc - 1) std::cout << std::endl;
 	}
+	std::cout << std::endl;
+	return 0;
 }
