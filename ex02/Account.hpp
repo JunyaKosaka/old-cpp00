@@ -40,7 +40,7 @@ public:
 
 private:
 
-	static int	_nbAccounts;  // Accountがいくつあるか
+	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
@@ -48,9 +48,9 @@ private:
 	static void	_displayTimestamp( void );
 
 	int				_accountIndex;
-	int				_amount; // 預金高
-	int				_nbDeposits; // 預金回数
-	int				_nbWithdrawals; // 引き出し回数
+	int				_amount;
+	int				_nbDeposits;
+	int				_nbWithdrawals;
 
 	Account( void );
 

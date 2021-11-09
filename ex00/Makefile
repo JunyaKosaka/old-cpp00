@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 09:26:51 by jkosaka           #+#    #+#              #
-#    Updated: 2021/11/09 21:42:20 by jkosaka          ###   ########.fr        #
+#    Updated: 2021/11/09 22:12:14 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ CC = clang++
 STD = -std=c++98
 SRCS = megaphone.cpp
 
-CXXFLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror 
 
 $(NAME) : $(SRCS)
-	$(CC) $(STD) $(CXXFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(STD) $(FLAGS) $(SRCS) -o $(NAME)
 
 all	: $(NAME)
 
