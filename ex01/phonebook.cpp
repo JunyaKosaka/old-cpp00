@@ -46,9 +46,28 @@ void PhoneBook::_add() {
 }
 
 void PhoneBook::_search() {
+	std::string response;
+
 	std::cout << "|     index|first name| last name|  nickname|\n";
 	for (int i = 0; i < this->_cur_index; i++) {
-		this->_show_contact(i);
+		this->_show_contacts(i);
+	}
+	if (this->_cur_index == 0) return;
+	while (1) {
+		std::cout << "INPUT INDEX BETWEEN 0 AND " << this->_cur_index - 1 << ": ";
+		std::getline(std::cin, response, '\n');
+		if (response.size() != 1 || response < "0" || response > "9") {
+			std::cout << "INVALID INDEX:(" << std::endl;
+			continue;
+		}
+		char c = response[0];
+		int num = 0 + (c - '0');
+		if (num >= this->_cur_index) {
+			std::cout << "INVALID INDEX:(" << std::endl;
+			continue;
+		}
+		PhoneBook::_show_one(num);
+		break;
 	}
 }
 
@@ -77,7 +96,16 @@ std::string PhoneBook::_trim_to_ten(std::string s) {
 	return s;
 }
 
-void PhoneBook::_show_contact(int i) {
+void PhoneBook::_show_one(int i) {
+	std::string s;
+
+	for (int j = 0; j < Contact::content_num; j++) {
+		s = this->_data[i].get_info(j);
+		std::cout << Contact::prompt_list[j] << ": " << s << std::endl;
+	}
+}
+
+void PhoneBook::_show_contacts(int i) {
 	std::string s;
 	std::cout << "|         " << i << "|";
 	for (int j = 0; j < Contact::content_num - 2; j++) {
@@ -85,6 +113,7 @@ void PhoneBook::_show_contact(int i) {
 		s = PhoneBook::_trim_to_ten(s);
 		std::cout << s;
 		// todo:: sを10文字で出力 std::setw(10)が使えない 自分の関数を見て良いのか
+		// # include <iomanip>
 		std::cout << "|";
 	}
 	std::cout << std::endl;

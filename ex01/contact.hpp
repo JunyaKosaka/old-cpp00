@@ -14,6 +14,8 @@ public:
 	static const int	content_num = 5;
 	static const		std::string prompt_list[content_num];
 
+	// Contact(void);
+	// ~Contact(void); // 追加
 
 private:
 
