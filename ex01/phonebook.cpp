@@ -28,7 +28,6 @@ void PhoneBook::_add() {
 
 	if (this->_cur_index == DATA_MAX) {
 		this->_erase_old();
-		std::cout << "DELETED OLDEST ONE:(" << std::endl;
 		this->_cur_index--;
 	}
 	for (int i = 0; i < Contact::content_num; i++) {
